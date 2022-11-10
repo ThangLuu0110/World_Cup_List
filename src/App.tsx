@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from 'react';
+import MainContent from './Component';
+import './assets/scss/styles.scss';
+import getTokenAuthen from './api/token.api';
 
 function App() {
+  const [token, setToken] = useState<string>('');
+  
+  const handleInit = () => {
+    getTokenAuthen()
+    .then((response) =>{
+        setToken(response.access_token);
+    })
+}
+
+useEffect(() => {handleInit()},[]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App-wrapper">
+      <MainContent token={token} />
     </div>
   );
 }
