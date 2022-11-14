@@ -1,0 +1,29 @@
+.header-wrapper{
+    .header{
+        height: 150px;
+        display: grid;
+        grid-template-rows: 2fr 1fr;
+
+
+        &__logo{
+            display: flex;
+            justify-content: center;
+            
+            &--link{
+                display: flex;
+                align-items: center;
+
+                img{
+                    width: 50px;
+                }
+
+                span{
+                    font-size: 1.5rem;
+                    color: $text-color;
+                    margin-left: 1rem;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

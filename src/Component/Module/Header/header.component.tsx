@@ -22,7 +22,7 @@ export class Header extends Component<HeaderProps> {
                     <div className="header__logo">
                         <Link to='/' className="header__logo--link">
                             <img src={WCLogo} alt=''/>
-                            <span>World Cup Informations</span>
+                            <span>World Cup <br/> Informations</span>
                         </Link>
                     </div>
                     <nav className="header__navbar">
