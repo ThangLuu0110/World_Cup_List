@@ -1,6 +1,8 @@
-import React, {Component} from 'react';
+import React, {Component, ReactElement} from 'react';
 import {Link} from 'react-router-dom';
 import WCLogo from '../../../assets/images/World-Cup-2022-logo.png';
+import {FiHome, FiList} from 'react-icons/fi';
+import {AiOutlineUserAdd} from 'react-icons/ai';
 
 interface HeaderProps{
 
@@ -9,13 +11,15 @@ interface HeaderProps{
 export class Header extends Component<HeaderProps> {
     pageTitle: string = 'World Cup 2022';
 
-    tabMenuList: {index: number, tabName: string, tabPath: string}[] = [
-        {index: 0, tabName: 'Home', tabPath: ''},
-        {index: 1, tabName: 'Player List', tabPath: 'list'},
-        {index: 2, tabName: 'Add Player', tabPath: 'create'},
+    tabMenuList: {index: number, tabName: string, tabPath: string, icon: ReactElement}[] = [
+        {index: 0, tabName: 'Home', tabPath: '', icon: <FiHome/>},
+        {index: 1, tabName: 'Player List', tabPath: 'list', icon: <FiList/>},
+        {index: 2, tabName: 'Add Player', tabPath: 'create', icon: <AiOutlineUserAdd/>},
     ];
 
     render() {
+       
+        
         return (
             <header className="header-wrapper grid">
                 <div className="header grid wide">
@@ -28,8 +32,9 @@ export class Header extends Component<HeaderProps> {
                     <nav className="header__navbar">
                         <ul className="header__navbar--list">
                             {this.tabMenuList.map(tab => (
-                                <li>
+                                <li className="header__navbar--item">
                                     <Link to={`/${tab.tabPath}`}>
+                                        {tab.icon}
                                         {tab.tabName}
                                     </Link>
                                 </li>
