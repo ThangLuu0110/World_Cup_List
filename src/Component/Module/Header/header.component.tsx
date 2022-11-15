@@ -34,8 +34,8 @@ export class Header extends Component<HeaderProps> {
                             {this.tabMenuList.map(tab => (
                                 <li className="header__navbar--item">
                                     <Link to={`/${tab.tabPath}`}>
-                                        {tab.icon}
-                                        {tab.tabName}
+                                        <span>{tab.icon}</span><br/>
+                                        <span>{tab.tabName}</span>
                                     </Link>
                                 </li>
                             ))}
