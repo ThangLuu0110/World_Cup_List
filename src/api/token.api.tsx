@@ -1,5 +1,7 @@
+import {API_PATH, DOMAIN_URL} from "../Component/Common Block/const";
+
 export default function getTokenAuthen(){
-    const url:string = 'https://vtivietnam-dev-ed.my.salesforce.com';
+    const url:string = DOMAIN_URL;
     
     const formData = new FormData();
     formData.append('username', 'manhthang110@vti.com');
@@ -15,6 +17,6 @@ export default function getTokenAuthen(){
         body: formData
     };
 
-    return fetch(url + '/services/oauth2/token', options)
+    return fetch(url + API_PATH.TOKEN_AUTHEN, options)
             .then(response => response.json())         
 }
